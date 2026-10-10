@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QRDine — Vendor Kitchen Display</title>
+  <link rel="stylesheet" href="./styles/vendor-dashboard.css">
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-row">
+      <div>
+        <h1>QRDine</h1>
+        <p class="subtitle">Kitchen Display System</p>
+      </div>
+      <div class="status" id="status" data-state="disconnected">
+        <span class="status-dot"></span>
+        <span class="status-text">Disconnected</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="orders" class="orders">
+      <div id="empty-state" class="empty-state">
+        <p class="empty-title">No orders yet</p>
+        <p class="empty-hint">Paid orders from the student app will appear here in real time.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="error-banner" class="error-banner" role="alert" hidden>
+    <span>Connection error — reconnecting…</span>
+  </div>
+
+  <script type="module" src="./vendor-dashboard.js"></script>
+</body>
+</html>

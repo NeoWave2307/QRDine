@@ -1,0 +1,239 @@
+/**
+ * Vendor Kitchen Display System styles.
+ * Minimalistic, sleek, and professional — operational clarity over decoration.
+ */
+
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-2: #273449;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --accent: #2563eb;
+  --success: #16a34a;
+  --border: #334155;
+  --new: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  max-width: 960px;
+  margin: 0 auto 20px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-header h1 {
+  font-size: 26px;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.app-header .subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ---------- Status ---------- */
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  padding: 8px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #64748b;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.status[data-state="connected"] .status-dot {
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+}
+
+.status[data-state="connecting"] .status-dot {
+  background: var(--new);
+  box-shadow: 0 0 8px var(--new);
+}
+
+.status[data-state="error"] .status-dot {
+  background: #dc2626;
+  box-shadow: 0 0 8px #dc2626;
+}
+
+.status[data-state="disconnected"] .status-dot {
+  background: #64748b;
+}
+
+/* ---------- Container ---------- */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
+.empty-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.empty-hint {
+  font-size: 14px;
+}
+
+/* ---------- Order card ---------- */
+.order-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  animation: slideIn 0.3s ease;
+}
+
+.order-card.new {
+  border-left-color: var(--new);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.order-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.order-id {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.order-time {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.order-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.order-items li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.order-items li strong {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.order-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.order-total {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.verification-code {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--new);
+  background: rgba(245, 158, 11, 0.12);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.order-hint {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ---------- Error banner ---------- */
+.error-banner {
+  max-width: 960px;
+  margin: 16px auto 0;
+  padding: 12px 16px;
+  background: rgba(220, 38, 38, 0.12);
+  border: 1px solid #dc2626;
+  border-radius: 8px;
+  color: #fca5a5;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  body { padding: 12px; }
+  .app-header h1 { font-size: 22px; }
+  .order-foot { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .verification-code { font-size: 18px; }
+}
