@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QRDine - Campus Self-Order</title>
+  <link rel="stylesheet" href="./src/styles/app.css">
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>QRDine</h1>
+    <p class="subtitle">Campus Canteen Self-Order</p>
+  </header>
+
+  <main class="container">
+    <section id="menu-container" class="card"></section>
+    <section id="cart-container" class="card"></section>
+
+    <div id="payment-modal-overlay" class="modal-overlay" style="display: none;">
+      <section id="payment-modal" class="card modal-content"></section>
+    </div>
+
+    <section id="receipt-container" style="display: none;"></section>
+  </main>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

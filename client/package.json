@@ -1,0 +1,12 @@
+{
+  "name": "qrdine-student-client",
+  "version": "1.0.0",
+  "description": "Student Self-Order Client Application for qrdine",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "npx serve public -p 8080"
+  },
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}
